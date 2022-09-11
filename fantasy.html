@@ -5,14 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy Football Weekly Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
-<header>
-    <h2>Fantasy Football Calculator</h2>
+<header class="hero is-success">
+    <h2 class="title is-1 mt-5 is-flex is-justify-content-center">Fantasy Football Calculator</h2>
+    <div class="navbar is-dark">
+        <div id="navbarBasicExample" class="navbar-menu is-justify-content-center is-size-3">
+              <a class="navbar-item">
+                Player Data
+              </a>
+                <a class="navbar-item">
+                  FFA Calculator
+                </a>
+                    <a class="navbar-item">
+                      NFL News
+                    </a>
+                        <a class="navbar-item">
+                          Some other shit here
+                        </a>
+    </div>
 </header>
 <body>
+    <div class="marquee3k" id="articles"
+    data-speed="0.2"
+    data-pausable="true">
+    <h1 class="message-header is-4 has-text-success" id="spinner"></h1>
+    </div>
 
+    <section class="section is=medium">
+        <div class="columns">
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="title is-5">Player Selector</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="title is-5">Player Selector</h2>
+                </div>
+            </div>
+    </div>
+
+    </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script rel="script" src="./script.js"></script>
+    <script src="./Assets/Javascript/marquee3k.js"></script>
+    <script rel="script" src="./Assets/Javascript/script.js"></script>
 </body>
 </html>
