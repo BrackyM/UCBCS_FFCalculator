@@ -1,32 +1,59 @@
-var newTest ='';
-var playerData, nflAPI, userLineups, league, userData;
+var playerData, nflNews, userLineups, league, userData, liveScore;
 var articleEL = $('#articles');
 var spinner = $('#spinner');
 var searchBtn = document.querySelector('#search-btn');
+var nflScores = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard";
 
+//Variables for news/score updates
+var scoreText = $('#nflScoreText');
+var scoreImage = $('#scoreImage');
+var newsText = $('#newsText');
 
+//Fetching data from our local data, massive file of all NFL athletes and their names/stats
 fetch("./Assets/Local data/playerdata.json")
 .then(response => {
    return response.json();
 })
 .then(data => {
+   //Logging NFL player data in a variable
    playerData = data;
    console.log(data) 
+   //Fetching NFL news from ESPN's "secret" API
    return fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news");
 })
 .then(response => {
    return response.json();
 })
 .then (data => {
-   nflAPI = data;
+   //Storing NFL News data in a variable
+   nflNews = data;
    console.log(data);
    
-   for (let i = 0; i < nflAPI.articles.length; i++) {
-      var headlineLink = nflAPI.articles[i].links.web.href
-      $(spinner).append(" <i class='fa-solid fa-newspaper fa-xl'></i> " + "<a class='tag is-success'href=" + headlineLink + ">" + nflAPI.articles[i].headline + "</a>" );
+   //Looping through the NFL News data, appending it to our spinner element. Adding hrefs for
+   for (let i = 0; i < nflNews.articles.length; i++) {
+      var headlineLink = nflNews.articles[i].links.web.href
+      $(spinner).append(" <i class='fa-solid fa-newspaper fa-xl'></i> " + "<a class='tag is-success'href=" + headlineLink + " target='_blank'>" + nflNews.articles[i].headline + "</a>" );
    }
+   //Calling Marquee3k, a script that will create a spinning banner inside any div we call it to
    Marquee3k.init()
-});
+   //
+   return fetch(nflScores)
+})
+.then(response =>{
+   return response.json();
+})
+.then(data => {
+   liveScore = data;
+   console.log(liveScore);
+   $(scoreText).text("Scores and News for Week " + liveScore.week.number + " of " + liveScore.season.year);
+   for (let i=0; i < liveScore.events.length; i++){
+      var gameDate = liveScore.events[i].date;
+      var newDate = gameDate.split("T")[0];
+      const date = new Date (newDate);
+      $(newsText).append("<li>" + liveScore.events[i].name + " --- " + date + "</li>");
+   }
+})
+;
 
 function searchClickHandler (event) {
    event.preventDefault();
@@ -106,7 +133,6 @@ fetch(apiURL)
          newArray.push(playerData[varPlayer])
          }
       var finalArray = []
-      // for (var varPositions of )
       console.log(newArray)
          for (let i=0; i < newArray.length; i++){ 
             if (newArray[i].full_name){
@@ -116,71 +142,6 @@ fetch(apiURL)
             }
          } 
    });
-      // for (userPlayerValue of Object.entries(playerData)){
-      //    console.log(playerDataValue);
-      //    for (let i=0; i < matchingPlayers.length; i++){
-      //       if (playerDataValue == matchingPlayers[i]){
-      //       $('#teamcard-players').append("<li>"+ playerDataValue[1].full_name + "</li>")
-      //    }
-      // }}
-
-
-
-
-
-      // [player list = [0= {key: 1, value: 500},1,2,3,4,5}]
-
-      // function multiplyAll(arr) {
-      //    let product = 1;
-      //    // Only change code below this line
-      //    for (let i = 0; i < arr.length; i++) {
-      //      for (let j = 0; j < arr[i].length; j++) {
-      //        console.log(arr[i][j]);
-      //      }
-      //    }
-      //    // Only change code above this line
-      //    return product;
-      //  }
-       
-      //  multiplyAll([[1,2],[3,4],[5,6,7]]);
-         // 1
-         // 2
-         // 3
-         // 4
-         
-
-
-
-
-
-
-
-
-      // for (let i=0; i < matchingData[0].players.length; i++){
-      //    $('#teamcard-players').append("<li>"+ matchingData[0].players[i] + "</li>")
-      //   }
-
-
-
-
-   //    for (league.owner_id of league){
-//       console.log(league.owner_id);
-//       $('#teamcard-players').append("<li>"+ league.players + "</li>")
-//       if (league.owner_id === userData.user_id){
-//          for (let i=0; i < league.players; i++){
-//             $('#teamcard-players').append("<li>"+ league.players[i] + "</li>")
-//          }
-//    }
-// //       if (league[i].owner_id !== userData.user_id){
-// //          for (let i=0; i <league[i].players; i++) {
-// //             $('#teamcard-players').append("<li>" + league[i].players[i] + "</li>")
-// //          }
-// //       } else {
-// //          return;
-// //       }
-// // }
-// }
-
 
 };
 
