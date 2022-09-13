@@ -1,4 +1,4 @@
-var sleeperAPI, nflAPI, userLineups, league, userData;
+var playerData, nflAPI, userLineups, league, userData;
 var articleEL = $('#articles');
 var spinner = $('#spinner');
 var searchBtn = document.querySelector('#search-btn');
@@ -9,8 +9,8 @@ fetch("./Assets/Local data/playerdata.json")
    return response.json();
 })
 .then(data => {
-   sleeperAPI = data;
-   console.log(data)
+   playerData = data;
+   console.log(data) 
    return fetch("http://site.api.espn.com/apis/site/v2/sports/football/nfl/news");
 })
 .then(response => {
@@ -76,24 +76,90 @@ fetch(apiURL)
 .then(data => {
    league = data;
    console.log(data);
-   const currentUser = league.filter(getUserID)
+   console.log(userData.user_id);
+   console.log(playerData);
 
-   function getUserID(value, index, array){
-      return value === userData.user_id;
-   }
+   var matchingData = league.filter( (league) => {
+      if(league.owner_id == userData.user_id){
+         return true;
+      }})
+      console.log(matchingData);
 
-   console.log(getUserID);
+      var matchingPlayers = matchingData[0].players;
+      console.log(matchingPlayers);
+      
+      var newPlayerData = Object.values(playerData)
 
-//    for (let i=0; i < league.length; i++){
-//       if (league[i].owner_id !== userData.user_id){
-//          for (let i=0; i <league[i].players; i++) {
-//             $('#teamcard-players').append("<li>" + league[i].players[i] + "</li>")
+
+      console.log(newPlayerData)
+      console.log(Object.keys(playerData));
+      console.log(Object.values(playerData));
+      console.log(Object.entries(playerData));
+      
+      for (userPlayerValue of Object.entries(playerData)){
+         console.log(playerDataValue);
+         for (let i=0; i < matchingPlayers.length; i++){
+            if (playerDataValue == matchingPlayers[i]){
+            $('#teamcard-players').append("<li>"+ playerDataValue[1].full_name + "</li>")
+         }
+      }}
+   });
+
+
+
+
+      // [player list = [0= {key: 1, value: 500},1,2,3,4,5}]
+
+      // function multiplyAll(arr) {
+      //    let product = 1;
+      //    // Only change code below this line
+      //    for (let i = 0; i < arr.length; i++) {
+      //      for (let j = 0; j < arr[i].length; j++) {
+      //        console.log(arr[i][j]);
+      //      }
+      //    }
+      //    // Only change code above this line
+      //    return product;
+      //  }
+       
+      //  multiplyAll([[1,2],[3,4],[5,6,7]]);
+         // 1
+         // 2
+         // 3
+         // 4
+         
+
+
+
+
+
+
+
+
+      // for (let i=0; i < matchingData[0].players.length; i++){
+      //    $('#teamcard-players').append("<li>"+ matchingData[0].players[i] + "</li>")
+      //   }
+
+
+
+
+   //    for (league.owner_id of league){
+//       console.log(league.owner_id);
+//       $('#teamcard-players').append("<li>"+ league.players + "</li>")
+//       if (league.owner_id === userData.user_id){
+//          for (let i=0; i < league.players; i++){
+//             $('#teamcard-players').append("<li>"+ league.players[i] + "</li>")
 //          }
-//       } else {
-//          return;
-//       }
+//    }
+// //       if (league[i].owner_id !== userData.user_id){
+// //          for (let i=0; i <league[i].players; i++) {
+// //             $('#teamcard-players').append("<li>" + league[i].players[i] + "</li>")
+// //          }
+// //       } else {
+// //          return;
+// //       }
+// // }
 // }
-});
 
 
 };
@@ -101,3 +167,4 @@ fetch(apiURL)
 // Search button event
 searchBtn.addEventListener("click", searchClickHandler);
 
+//Creating function to open new page on load
