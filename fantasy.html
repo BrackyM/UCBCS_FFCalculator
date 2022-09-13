@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy Football Weekly Calculator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/38c17d96dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
 <header class="hero is-success">
@@ -18,7 +19,7 @@
                 <a class="navbar-item">
                   FFA Calculator
                 </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" id="nfl-news">
                       NFL News
                     </a>
                         <a class="navbar-item">
@@ -34,19 +35,94 @@
     </div>
 
     <section class="section is=medium">
-        <div class="columns">
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="title is-5">Player Selector</h2>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="title is-5">Player Selector</h2>
-                </div>
-            </div>
-    </div>
+        <div class="columns is-full is-justify-content-center">
+            <div class="card" id="searchcardcontent">
+                <div class="card-content" id="cardcontent">
+                        <div class="field is-flex is-justify-content-space-between">
 
+                        <button class="button is-success" id="search-btn">Search</button>
+                            <div class="control has-icons-right">
+                            <input class="input is-rounded" placeholder="Search username" id="username">
+                            <span class="icon is-small is-right">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </span>
+                            </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="card" id="welcome-user-card">
+            <div class="card-content" id="welcome-user">
+            </div>
+        </div>
+        <div class="columns columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+            <div class="column">
+              First column
+              <div class="card card-box">
+                <div class="card" id="team1">
+                    <div class="card-content" id="teamcard-positions">
+                        <h2>Hello</h2>
+                    </div>
+                    <div class="card-content" id="teamcard-players">
+                        <h2>Hello</h2>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="#save-card" class="card-footer-item">Save</a>
+                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                </footer>
+            </div>
+
+            </div>
+            <div class="column">
+              Second column
+              <div class="card card-box">
+                <div class="card-content" id="teamcard-content">
+                    <h2>Hello</h2>
+                </div>
+                <footer class="card-footer">
+                    <a href="#save-card" class="card-footer-item">Save</a>
+                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                </footer>
+                </div>
+            </div>
+            <div class="column">
+              Third column
+              <div class="card card-box">
+                <div class="card-content" id="teamcard-content">
+                    <h2>Hello</h2>
+                </div>
+                <footer class="card-footer">
+                    <a href="#save-card" class="card-footer-item">Save</a>
+                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                </footer>
+                </div>
+            </div>
+            <div class="column">
+              Fourth column
+              <div class="card card-box">
+                <div>
+                    <div class="card-content" id="teamcard-content"></div>
+                </div>
+                <div class="columns">
+                  <div class="column">
+                    Position
+                  </div>
+                  <div class="column">
+                    Player
+                  </div>
+                  <div class="column">
+                    Proj. Points
+                  </div>
+                </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="#save-card" class="card-footer-item">Save</a>
+                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                </footer>
+              </div>
+            </div>
+          </div>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
