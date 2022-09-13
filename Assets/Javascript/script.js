@@ -12,7 +12,7 @@ fetch("./Assets/Local data/playerdata.json")
 .then(data => {
    playerData = data;
    console.log(data) 
-   return fetch("http://site.api.espn.com/apis/site/v2/sports/football/nfl/news");
+   return fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/news");
 })
 .then(response => {
    return response.json();
@@ -63,10 +63,14 @@ fetch(apiURL)
    console.log(userLineups);
    var lineup1 = userLineups[0].league_id;
    console.log(lineup1);
-   $('#team1').append("<h2>" + userLineups[0].name + "</h2>"); 
+   var rosterArray = userLineups[0].roster_positions.filter(function (item){
+      return item !== "BN"
+   })
+
+   $('#team1card-content').append("<h2 class=title is-4>" + userLineups[0].name + "</h2>"); 
       
-      for (let i=0; i < userLineups[0].roster_positions.length; i++){
-         $('#teamcard-positions').append("<li>" + userLineups[0].roster_positions[i] + "</li>");
+      for (let i=0; i < rosterArray.length; i++){
+         $('#teamcard-positions').append("<ul> <li>" + userLineups[0].roster_positions[i] + "</li></ul>");
       };
 
    return fetch("https://api.sleeper.app/v1/league/" + lineup1 + "/rosters");
@@ -86,7 +90,7 @@ fetch(apiURL)
       }})
       console.log(matchingData);
 
-      var matchingPlayers = matchingData[0].players;
+      var matchingPlayers = matchingData[0].starters;
       console.log(matchingPlayers);
       
       var newPlayerData = Object.values(playerData)
@@ -101,11 +105,16 @@ fetch(apiURL)
       for (var varPlayer of matchingPlayers){
          newArray.push(playerData[varPlayer])
          }
-      
+      var finalArray = []
+      // for (var varPositions of )
       console.log(newArray)
-         for (let i=0; i < newArray.length; i++){
-         $('#teamcard-players').append("<li>"+ newArray[i].full_name + "</li>")
-         }
+         for (let i=0; i < newArray.length; i++){ 
+            if (newArray[i].full_name){
+         $('#teamcard-players').append("<ul><li>"+ newArray[i].full_name + "</ul></li>")
+            } else {
+               $('#teamcard-players').append("<ul><li>"+ newArray[i].last_name + "</ul></li>")
+            }
+         } 
    });
       // for (userPlayerValue of Object.entries(playerData)){
       //    console.log(playerDataValue);
