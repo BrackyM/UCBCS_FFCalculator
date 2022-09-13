@@ -1,3 +1,6 @@
+
+/* Global Variables */
+
 .navbar-item{
 border: 5px solid black;
 margin: 5px
@@ -6,3 +9,52 @@ margin: 5px
 h2 {
     font-size: 500px;
 }
+
+/* Search Box */
+
+#searchcardcontent {
+    width: 30vw;
+}
+
+/* Welcome Card */
+#welcome-user-card {
+    width: 30vw;
+    margin: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#welcome-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-image {
+    height: 8em;
+    width: 8em;
+}
+
+/* Cards for User Data */
+
+.columns {
+    padding-top: 2em;
+}
+
+.card-box {
+    height: 500px;
+}
+
+#individual-league-column {
+    width: 5vw;
+}
+
+#team1{
+    display: flex;
+    justify-content: space-around;
+}
+
+
