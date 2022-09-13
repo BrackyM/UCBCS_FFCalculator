@@ -1,3 +1,4 @@
+var newTest ='';
 var playerData, nflAPI, userLineups, league, userData;
 var articleEL = $('#articles');
 var spinner = $('#spinner');
