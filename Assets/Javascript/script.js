@@ -96,14 +96,24 @@ fetch(apiURL)
       console.log(Object.values(playerData));
       console.log(Object.entries(playerData));
       
-      for (userPlayerValue of Object.entries(playerData)){
-         console.log(playerDataValue);
-         for (let i=0; i < matchingPlayers.length; i++){
-            if (playerDataValue == matchingPlayers[i]){
-            $('#teamcard-players').append("<li>"+ playerDataValue[1].full_name + "</li>")
+      var newArray = []
+      for (var varPlayer of matchingPlayers){
+         newArray.push(playerData[varPlayer])
          }
-      }}
+      
+      console.log(newArray)
+         for (let i=0; i < newArray.length; i++){
+         $('#teamcard-players').append("<li>"+ newArray[i].full_name + "</li>")
+         }
    });
+      // for (userPlayerValue of Object.entries(playerData)){
+      //    console.log(playerDataValue);
+      //    for (let i=0; i < matchingPlayers.length; i++){
+      //       if (playerDataValue == matchingPlayers[i]){
+      //       $('#teamcard-players').append("<li>"+ playerDataValue[1].full_name + "</li>")
+      //    }
+      // }}
+
 
 
 
