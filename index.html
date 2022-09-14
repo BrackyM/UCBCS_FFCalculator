@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/38c17d96dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="stylesheet" href="./Assets/CSS/ffapi.css">
 </head>
 <header class="hero is-success">
     <h2 class="title is-1 mt-5 is-flex is-justify-content-center">Fantasy Football Calculator</h2>
@@ -55,27 +56,58 @@
             <div class="card-content" id="welcome-user">
             </div>
         </div>
-        <div class="columns columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-            <div class="column">
+
+
+
+
+
+
+
+
+        
+        <div class="container">
+            <div class="column has-text-centered">
               First column
-              <div class="card card-box"><div class="card-content" id="team1card-content">
+              <!--Leauge Name -->
+             <div class="card card-box">
+              <div class="card-content" id="team1card-content"></div>
+                <div class="card " id="team1">
+                  <!--Player 1 Roster -->
+                  <div class="column card-content" id="teamcard-players">
+                      <h2 class="title is-4">Players</h2>
+                  </div>
+                  <!--Leauge Lineup -->
+                  <div class="column is-one-fifth card-content" id="teamcard-positions">
+                      <h2 class="title is-4">Positions</h2>
+                  </div>
+                  <!--Player 2 Roster -->
+                  <div class="column card-content" id="teamcard-players2">
+                    <h2 class="title is-4">Players</h2>
                 </div>
-                <div class="card" id="team1">
-                    <div class="card-content" id="teamcard-positions">
-                        <h2 class="title is-4">Positions</h2>
-                    </div>
-                    <div class="card-content" id="teamcard-players">
-                        <h2 class="title is-4">Players</h2>
-                    </div>
-                </div>
+              </div>
                 <footer class="card-footer">
-                    <a href="#save-card" class="card-footer-item">Save</a>
-                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                    <a class="card-footer-item">0</a>
+                    <a class="card-footer-item">0</a>
                 </footer>
+              </div>
             </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
-            <div class="column">
+            <div class="column container">
               Second column
               <div class="card card-box">
                 <div class="card-content" id="teamcard-content">
@@ -87,7 +119,7 @@
                 </footer>
                 </div>
             </div>
-            <div class="column">
+            <div class="column container">
               Fourth column
               <div class="card card-box">
                 <div>
