@@ -1,49 +1,34 @@
 #searchcardcontent {
-  width: 500px;
+    width: 500px;
 }
 
 /* Welcome Card */
 #welcome-user-card {
-  width: 500px;
-  margin: auto;
-  height: auto;
-  display: flex;
-  justify-content: center;
+    width: 500px;
+    margin: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
 }
 
+
 #welcome-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #user-image {
-  height: 8em;
-  width: 8em;
+    height: 8em;
+    width: 8em;
 }
 
 #individual-league-column {
-  width: 5vw;
+    width: 5vw;
 }
 
-#team1 {
-  display: flex;
-  justify-content: space-around;
+#team1{
+    display: flex;
+    justify-content: space-around;
 }
 
-@media screen and (max-width: 1020px) {
-  .hero {
-    display: flex;
-  }
-}
-
-@media screen and (max-width: 627px) {
-  .hero {
-    display: flex;
-    align-items: flex-start;
-  }
-  .navbar-item {
-    display: flex;
-    justify-content: space-between;
-  }
-}
