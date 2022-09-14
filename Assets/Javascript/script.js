@@ -1,4 +1,4 @@
-var playerData, nflNews, userLeagues, league, league1, league2, userData, liveScore, matchingRosterID, league1Data, matchupID;
+var playerData, nflNews, userLeagues, league, league1, league2, userData, liveScore, matchingRosterID1, matchingRosterID2, league1Data, matchupID;
 var articleEL = $('#articles');
 var spinner = $('#spinner');
 var searchBtn = document.querySelector('#search-btn');
@@ -8,7 +8,6 @@ var nflScores = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/score
 var scoreText = $('#nflScoreText');
 var scoreImage = $('#scoreImage');
 var newsText = $('#newsText');
-
 
 
 //Fetching data from our local data, massive file of all NFL athletes and their names/stats
@@ -50,9 +49,10 @@ fetch("./Assets/Local data/playerdata.json")
    $(scoreText).text("Scores and News for Week " + liveScore.week.number + " of " + liveScore.season.year);
    for (let i=0; i < liveScore.events.length; i++){
       var gameDate = liveScore.events[i].date;
-      var newDate = gameDate.split("T")[0];
-      const date = new Date (newDate);
-      $(newsText).append("<li>" + liveScore.events[i].name + " --- " + date + "</li>");
+      console.log(liveScore.events[i].date)
+      var date = new Date (gameDate);
+      var newDate = date.toDateString()
+      $(newsText).append("<h4><a class='button is-info' href=" + liveScore.events[i].links[0].href + " target='_blank' > " + liveScore.events[i].name + " </a> --- " + newDate + "</h4>");
    }
 })
 ;
@@ -116,70 +116,112 @@ fetch(apiURL)
          $('#teamcard-positions2').append("<ul><li class='is-size-5'>" + userLeagues[1].roster_positions[i] + "</li></ul>");
       };
 
-   return fetch("https://api.sleeper.app/v1/league/" + league1 + "/rosters");
+return Promise.all([
+         fetch("https://api.sleeper.app/v1/league/" + league1 + "/rosters"),
+         fetch("https://api.sleeper.app/v1/league/" + league2 + "/rosters")
+      ])
 })
 .then(response => {
-   return response.json();
+   return Promise.all(response.map(function (response) {
+      return response.json();
+   }))
 })
 .then(data => {
    league = data;
    console.log(data);
    console.log(userData.user_id);
 
-   var matchingData = league.filter( (league) => {
+   var matchingData1 = league[0].filter( (league) => {
       if(league.owner_id == userData.user_id){
          return true;
       }})
-      console.log(matchingData);
+      console.log(matchingData1);
+   
+   var matchingData2 = league[1].filter( (league) => {
+      if(league.owner_id == userData.user_id){
+         return true;
+      }})
+      console.log(matchingData2);
       
       
-      matchingRosterID = matchingData[0].roster_id;
+      matchingRosterID1 = matchingData1[0].roster_id;
+      matchingRosterID2 = matchingData2[0].roster_id;
 
-      console.log(matchingRosterID);
+      console.log(matchingRosterID1);
+      console.log(matchingRosterID2);
 
-      var matchingPlayers = matchingData[0].starters;
-      console.log(matchingPlayers);
+      var matchingPlayers1 = matchingData1[0].starters;
+      console.log(matchingPlayers1);
       
-      var newArray = []
-      for (var varPlayer of matchingPlayers){
-         newArray.push(playerData[varPlayer])
+      var matchingPlayers2 = matchingData2[0].starters;
+      console.log(matchingPlayers2);
+      
+      var playersLeague1 = []
+      for (var varPlayer of matchingPlayers1){
+         playersLeague1.push(playerData[varPlayer])
          }
-      var finalArray = []
-      console.log(newArray)
-         for (let i=0; i < newArray.length; i++){ 
-            if (newArray[i].full_name){
-         $('#teamcard-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ newArray[i].full_name + "</ul></li>")
+      var playersLeague2 = []
+      for (var varPlayer of matchingPlayers2){
+         playersLeague2.push(playerData[varPlayer])
+         }
+
+      console.log(playersLeague1)
+      console.log(playersLeague2)
+
+         for (let i=0; i < playersLeague1.length; i++){ 
+            if (playersLeague1[i].full_name){
+         $('#teamcard-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ playersLeague1[i].full_name + "</ul></li>")
             } else {
-               $('#teamcard-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ newArray[i].last_name + "</ul></li>")
+               $('#teamcard-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ playersLeague1[i].last_name + "</ul></li>")
+            }
+         }
+
+         for (let i=0; i < playersLeague2.length; i++){ 
+            if (playersLeague2[i].full_name){
+         $('#team2card-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ playersLeague2[i].full_name + "</ul></li>")
+            } else {
+               $('#team2card-players').append("<ul class='has-text-left'><li class='is-size-5'>"+ playersLeague2[i].last_name + "</ul></li>")
             }
          } 
-   return fetch("https://api.sleeper.app/v1/league/" + league1 + "/matchups/1");
+   return Promise.all([
+         fetch("https://api.sleeper.app/v1/league/" + league1 + "/matchups/1"),
+         fetch("https://api.sleeper.app/v1/league/" + league2 + "/matchups/1")
+         ])
    })
    .then(response => {
-      return response.json();
+      return Promise.all(response.map(function (response) {
+         return response.json();
+      }))
    })
    .then(data => {
       league1Data = data;
       console.log(league1Data)
-      console.log(league1Data[3].roster_id);
-      console.log(league1Data[3].matchup_id);
-      console.log(matchingRosterID);
 
 
-      var matchingID = league1Data.filter( (league1Data) => {
-         if(league1Data.roster_id == matchingRosterID){
+      var matchingID1 = league1Data[0].filter( (league1Data) => {
+         if(league1Data.roster_id == matchingRosterID1){
             return true;
          }})
+      var matchingID2 = league1Data[1].filter( (league1Data) => {
+         if(league1Data.roster_id == matchingRosterID2){
+            return true;
+         }})
+      console.log(matchingID1)
+      console.log(matchingID2)
 
       // Returning user status in league after referencing roster-id through array
       // Doing this to get matchup_id which we cannot get otherwise
-      console.log(matchingID)
-      for (let i=0; i < matchingID[0].starters_points.length; i++){
-         $('#teamcard-players1points').append("<ul class='has-text-right has-text-info'><li class='is-size-5'>"+ matchingID[0].starters_points[i] + "</ul></li>");
+      for (let i=0; i < matchingID1[0].starters_points.length; i++){
+         $('#teamcard-players1points').append("<ul class='has-text-right has-text-info'><li class='is-size-5'>"+ matchingID1[0].starters_points[i] + "</ul></li>");
+      }
+      for (let i=0; i < matchingID2[0].starters_points.length; i++){
+         $('#team2card-players2points').append("<ul class='has-text-right has-text-info'><li class='is-size-5'>"+ matchingID2[0].starters_points[i] + "</ul></li>");
       }
       
-      var matchupID = matchingID[0].matchup_id; // always searched user because [0] refers only to one array we pull
-      console.log(matchupID);
+      var matchupID1 = matchingID1[0].matchup_id; // always searched user because [0] refers only to one array we pull
+      console.log(matchupID1);
+      var matchupID2 = matchingID2[0].matchup_id; // always searched user because [0] refers only to one array we pull
+      console.log(matchupID2);
       
       var compareMatchingID = league1Data.filter( (league1Data) => {
          if(league1Data.matchup_id == matchupID){
@@ -188,7 +230,7 @@ fetch(apiURL)
          console.log(compareMatchingID)
       
          var otherPlayerArr = compareMatchingID.filter( (compareMatchingID) => {
-            if(compareMatchingID.roster_id !== matchingRosterID){
+            if(compareMatchingID.roster_id !== matchingRosterID1){
                return true;
             }})
          console.log(otherPlayerArr);
