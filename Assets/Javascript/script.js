@@ -176,7 +176,7 @@ fetch(apiURL)
          newArray.push(matchupID[ids])
          }
          console.log(newArray);
-      
+      // comment
    })
    
 };
