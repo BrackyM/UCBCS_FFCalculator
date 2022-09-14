@@ -1,4 +1,14 @@
-.twitter.container {
-    padding: 25px;
-    flex-direction: center;
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+h1 {
+
+    font-size: 40px;
+    text-align: center;
+    color: black;
+    background-image: linear-gradient(red,blue, darkblue ) ;
+    
 }
