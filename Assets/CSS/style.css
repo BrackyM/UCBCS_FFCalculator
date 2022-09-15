@@ -1,44 +1,31 @@
 
 /* Global Variables */
 
-.navbar-item{
-border: 5px solid black;
-margin: 5px
-};
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+}
+
+
+.title {
+    padding: .25em;   
+}
+
+.navbar-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 10em;
+    font-size: 20px;
+} 
+
+
 
 h2 {
     font-size: 500px;
 }
-
-/* Search Box */
-
-#searchcardcontent {
-    width: 30vw;
-}
-
-/* Welcome Card */
-#welcome-user-card {
-    width: 30vw;
-    margin: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-
-
-#welcome-user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#user-image {
-    height: 8em;
-    width: 8em;
-}
-
-/* Cards for User Data */
 
 .columns {
     padding-top: 2em;
@@ -48,13 +35,23 @@ h2 {
     height: 500px;
 }
 
-#individual-league-column {
-    width: 5vw;
-}
 
-#team1{
-    display: flex;
-    justify-content: space-around;
-}
+@media screen and (max-width: 1020px) {
 
+    .hero {
+        display: flex;
+        
+    }
+    }
 
+@media screen and (max-width: 627px) {
+
+        .hero {
+            display: flex;
+            align-items: flex-start;
+        }
+        .navbar-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        }
