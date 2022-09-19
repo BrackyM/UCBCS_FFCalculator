@@ -55,15 +55,3 @@ h2 {
             justify-content: space-between;
         }
         }
-
-@media screen and (max-width: 627px) {
-
-        .hero {
-            display: flex;
-            align-items: flex-start;
-        }
-        .navbar-item {
-            display: flex;
-            justify-content: space-between;
-        }
-        }

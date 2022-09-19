@@ -87,8 +87,9 @@ fetch("./Assets/Local data/playerdata.json")
       var newDate = date.toDateString();
       var gameVenue = nflLiveScore.events[i].competitions[0].venue.address.city;
       var attendance = nflLiveScore.events[i].competitions[0].attendance
+      var passingLeaderText = nflLiveScore.events[i].competitions[0].leaders[0].displayName
       var passingLeaderPlayer = nflLiveScore.events[i].competitions[0].leaders[0].leaders[0].athlete.fullName
-      var opponentLeaderPlayer = nflLiveScore.events[i].competitions[0].leaders[1].leaders[0].athlete.fullName
+      var opponentLeaderPlayer = nflLiveScore.events[i].competitions[0].leaders[2].leaders[0].athlete.fullName
       
       
       //Not in use...

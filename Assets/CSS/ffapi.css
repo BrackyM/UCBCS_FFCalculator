@@ -1,34 +1,78 @@
-#searchcardcontent {
-    width: 500px;
+
+
+
+/* Global Variables */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
 }
 
-/* Welcome Card */
-#welcome-user-card {
+
+.title {
+    padding: .25em;   
+}
+
+.navbar-start {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 10em;
+    font-size: 20px;
+} 
+
+
+
+h2 {
+    font-size: 500px;
+}
+
+.columns {
+    padding-top: 2em;
+}
+
+.card-box {
+    height: 500px;
+}
+
+#searchcardcontent {
+    width: 500px;
+  }
+  
+  /* Welcome Card */
+  #welcome-user-card {
     width: 500px;
     margin: auto;
     height: auto;
     display: flex;
     justify-content: center;
-}
-
-
-#welcome-user {
+  }
+  
+  #welcome-user {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#user-image {
+  }
+  
+  #user-image {
     height: 8em;
     width: 8em;
-}
-
-#individual-league-column {
+  }
+  
+  #individual-league-column {
     width: 5vw;
-}
-
-#team1{
+  }
+  
+  #team1 {
     display: flex;
     justify-content: space-around;
-}
-
+  }
+  
+  @media screen and (max-width: 627px) {
+    .navbar-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
