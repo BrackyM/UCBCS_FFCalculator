@@ -16,7 +16,7 @@ var playerData,
 var articleEL = $("#articles");
 var spinner = $("#spinner");
 var searchBtn = document.querySelector("#search-btn");
-var nflScores = "http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard";
+var nflScores = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard";
 
 // Variables for news/score updates
 var scoreText = $("#nflScoreText");
