@@ -7,35 +7,44 @@
     <title>Fantasy Football Weekly Calculator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/38c17d96dd.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="stylesheet" href="./Assets/CSS/ffapi.css">
 </head>
+
+
 <header class="hero is-success">
-    <h2 class="title is-1 mt-5 is-flex is-justify-content-center">Fantasy Football Calculator</h2>
-    <div class="navbar is-dark">
-        <div id="navbarBasicExample" class="navbar-menu is-justify-content-center is-size-3">
-              <a class="navbar-item">
-                Player Data
-              </a>
+  <h2 class="title is-2 mt-5 is-flex is-justify-content-center">Fantasy Football Calculator</h2>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand has-dropdown is-active">
+      <div class="navbar-start">
+          <!-- Nav Bar -->
                 <a class="navbar-item">
-                  FFA Calculator
+                  Home
                 </a>
-                    <a class="navbar-item" id="nfl-news">
-                      NFL News
-                    </a>
-                        <a class="navbar-item">
-                          Some other shit here
-                        </a>
-    </div>
+          
+                <a class="navbar-item" href="#fantasynews">
+                  NFL News
+                </a>
+               
+                <a class="navbar-item" href="./nflnews.html" >
+                  Twitter Update
+                </a>
+                </div>
+              </div>
+            </div>
+        </header>
 </header>
+
+
 <body>
+  <!-- Spinner for news -->
     <div class="marquee3k" id="articles"
     data-speed="0.2"
     data-pausable="true">
     <h1 class="message-header is-4 has-text-success" id="spinner"></h1>
     </div>
-
-    <section class="section is=medium">
-        <div class="columns is-full is-justify-content-center">
+<!-- Welcome Card / User Search Section -->
+    <section class="section">
+        <div class="columns is-flex is-justify-content-center">
             <div class="card" id="searchcardcontent">
                 <div class="card-content" id="cardcontent">
                         <div class="field is-flex is-justify-content-space-between">
@@ -55,76 +64,86 @@
             <div class="card-content" id="welcome-user">
             </div>
         </div>
-        <div class="columns columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-            <div class="column">
-              First column
-              <div class="card card-box">
-                <div class="card" id="team1">
-                    <div class="card-content" id="teamcard-positions">
-                        <h2>Hello</h2>
-                    </div>
-                    <div class="card-content" id="teamcard-players">
-                        <h2>Hello</h2>
-                    </div>
+      <!-- Tables for League Players/Points/Positions -->
+    </section>
+      <section class="section">
+        <div class="container">
+            <div class="column has-text-centered" id="leaguecolumn">
+              <!--Leauge Name -->
+             <div class="card card-box">
+              <div class="card-content" id="team1card-content"></div>
+                <div class="card " id="team1">
+                  <!--Player 1 Roster -->
+                  <div class="column card-content" id="teamcard-players">
+                      <h2 class="title is-4 has-text-left">You</h2>
+                  </div>
+                  <div class="column card-content" id="teamcard-players1points">
+                    <h2 class="title is-4 has-text-right">[P]</h2>
                 </div>
-                <footer class="card-footer">
-                    <a href="#save-card" class="card-footer-item">Save</a>
-                    <a href="#delete-card" class="card-footer-item">Delete</a>
-                </footer>
-            </div>
+                  <!--Leauge Lineup -->
+                  <div class="column is-one-fifth card-content" id="teamcard-positions">
+                      <h2 class="title is-4">Positions</h2>
+                      <div></div>
+                  </div>
 
-            </div>
-            <div class="column">
-              Second column
-              <div class="card card-box">
-                <div class="card-content" id="teamcard-content">
-                    <h2>Hello</h2>
+                  <!--Player 2 Roster -->
+                  <div class="column card-content" id="teamcard-players2points">
+                    <h2 class="title is-4 has-text-left">[P]</h2>
                 </div>
+                <!-- Opponent -->
+                <div class="column card-content" id="teamcard-players2">
+                  <h2 class="title is-4 has-text-right">Opponent</h2>
+              </div>
+              </div>
+              <!-- Total Team Points for League 1 Data -->
                 <footer class="card-footer">
-                    <a href="#save-card" class="card-footer-item">Save</a>
-                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                    <a class="card-footer-item" id="team1points"></a>
+                    <a class="card-footer-item" id="team2points"></a>
                 </footer>
-                </div>
             </div>
-            <div class="column">
-              Third column
-              <div class="card card-box">
-                <div class="card-content" id="teamcard-content">
-                    <h2>Hello</h2>
-                </div>
-                <footer class="card-footer">
-                    <a href="#save-card" class="card-footer-item">Save</a>
-                    <a href="#delete-card" class="card-footer-item">Delete</a>
-                </footer>
-                </div>
             </div>
-            <div class="column">
-              Fourth column
-              <div class="card card-box">
-                <div>
-                    <div class="card-content" id="teamcard-content"></div>
-                </div>
-                <div class="columns">
-                  <div class="column">
-                    Position
+              <div class="column has-text-centered" id="leaguecolumn">
+                <!--Leauge Name -->
+               <div class="card card-box">
+                <div class="card-content" id="league2card-content"></div>
+                  <div class="card " id="team1">
+                    <!--Player 1 Roster -->
+                    <div class="column card-content" id="team2card-players">
+                        <h2 class="title is-4 has-text-left">You</h2>
+                    </div>
+                    <div class="column card-content" id="team2card-players1points">
+                      <h2 class="title is-4 has-text-right">[P]</h2>
                   </div>
-                  <div class="column">
-                    Player
+                    <!--Leauge Lineup -->
+                    <div class="column is-one-fifth card-content" id="teamcard-positions2">
+                        <h2 class="title is-4">Positions</h2>
+                    </div>
+                    <!--Player 2 Roster -->
+                    <div class="column card-content" id="team2card-players2points">
+                      <h2 class="title is-4 has-text-left">[P]</h2>
                   </div>
-                  <div class="column">
-                    Proj. Points
+                    <div class="column card-content" id="team2card-players2">
+                      <h2 class="title is-4 has-text-right">Opponent</h2>
                   </div>
                 </div>
-                </div>
+                <!-- Total Team Points for League 2 Data -->
                 <footer class="card-footer">
-                    <a href="#save-card" class="card-footer-item">Save</a>
-                    <a href="#delete-card" class="card-footer-item">Delete</a>
+                <a class="card-footer-item" id="team21points"></a>
+                <a class="card-footer-item" id="team22points"></a>
                 </footer>
               </div>
-            </div>
-          </div>
     </section>
-
+    <!-- NFL News Section -->
+    <section class="section hero is-success is-large p-5 m-1 is-align-items-center" id="fantasynews">
+      <h2 class="title is-1 has-text-centered" id="nflScoreText">
+      </h2>
+      <div class="columns">
+      <article class="column message has-background-dark">
+        <div class="message-header is-flex-wrap-wrap is-flex-direction-column is-align-items-stretch" id="weeklyMatchups">
+        </article>
+    </div>
+  </div>
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./Assets/Javascript/marquee3k.js"></script>
     <script rel="script" src="./Assets/Javascript/script.js"></script>
