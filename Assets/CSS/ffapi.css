@@ -33,8 +33,15 @@ h2 {
     padding-top: 2em;
 }
 
-.card-box {
-    height: 500px;
+.column {
+  flex: auto;
+  padding: 1px;
+  margin-top: 5px;
+}
+#leaguecolumn {
+  flex: auto;
+  padding: 1px;
+  margin-top: 5px;
 }
 
 #searchcardcontent {
@@ -66,6 +73,11 @@ h2 {
   }
   
   #team1 {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #team2 {
     display: flex;
     justify-content: space-around;
   }

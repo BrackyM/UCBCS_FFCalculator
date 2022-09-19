@@ -27,8 +27,9 @@ h2 {
     font-size: 500px;
 }
 
-.columns {
+.column {
     padding-top: 2em;
+    flex-basis: 0%;
 }
 
 .card-box {
