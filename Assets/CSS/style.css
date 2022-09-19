@@ -6,13 +6,11 @@
     flex-direction: column;
     justify-content: center ;
     align-items: center;
-    
 }
 
+
 .title {
-    padding: .25em;
-    width:
-    
+    padding: .25em;   
 }
 
 .navbar-item {
@@ -58,4 +56,14 @@ h2 {
         }
         }
 
+@media screen and (max-width: 627px) {
 
+        .hero {
+            display: flex;
+            align-items: flex-start;
+        }
+        .navbar-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        }

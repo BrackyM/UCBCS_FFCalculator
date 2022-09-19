@@ -1,0 +1,13 @@
+
+.navbar-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    width: 10em;
+    
+}
+
+.title {
+    padding: .25em;   
+}
