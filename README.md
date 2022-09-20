@@ -67,31 +67,31 @@ Index Screenshots
 * Screenshot 1: Blank Homepage
 * ![App Screenshot](./Assets/Screenshots/screenshot1.png)
 * Screenshot 2: User Welcome Block
-* ![App Screenshot](./Assets/Screenshots/Screenshot2.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot2.png)
 * Screenshot 3: User's First Fantasy Football Team
-* ![App Screenshot](./Assets/Screenshots/Screenshot3.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot3.png)
 * Screenshot 4: User's Second Fantasy Football Team
-* ![App Screenshot](./Assets/Screenshots/Screenshot4.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot4.png)
 
 Twitter Page Screenshots
 
 * Screenshot 5: Main Page
-* ![App Screenshot](./Assets/Screenshots/Screenshot5.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot5.png)
 * Screenshot 6: Single Twitter Section
-* ![App Screenshot](./Assets/Screenshots/Screenshot6.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot6.png)
 
 Index & Twitter Page Responsiveness
 
 * Screenshot 7: Main Page
-* ![App Screenshot](./Assets/Screenshots/Screenshot7.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot7.png)
 * Screenshot 8: Twitter Page
-* ![App Screenshot](./Assets/Screenshots/Screenshot8.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot8.png)
 * Screenshot 9: NFL News
-* ![App Screenshot](./Assets/Screenshots/Screenshot9.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot9.png)
 
 NFL News Section
 * Screenshot 10: NFL News
-* ![App Screenshot](./Assets/Screenshots/Screenshot10.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot10.png)
 
 ## Final Project Links
 
