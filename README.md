@@ -85,9 +85,9 @@ Index & Twitter Page Responsiveness
 * Screenshot 7: Main Page
 * ![App Screenshot](./Assets/Screenshots/screenshot7.png)
 * Screenshot 8: Twitter Page
-* ![App Screenshot](./Assets/Screenshots/screenshot8.png)
+* ![App Screenshot](./Assets/Screenshots/Screenshot8.png)
 * Screenshot 9: NFL News
-* ![App Screenshot](./Assets/Screenshots/Screenshot9.png)
+* ![App Screenshot](./Assets/Screenshots/screenshot9.png)
 
 NFL News Section
 * Screenshot 10: NFL News
