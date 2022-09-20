@@ -208,14 +208,14 @@ var userSearch = function (username) {
       // Appending the roster positions for each of our two leagues to our card boxes (i.e. QB, RB, WR and so on)
       for (let i = 0; i < rosterPositions1.length; i++) {
         $("#teamcard-positions").append(
-          "<ul><li class='is-size-5'>" +
+          "<ul><li class='is-size-5-tablet'>" +
             allUserLeagues[0].roster_positions[i] +
             "</li></ul>"
         );
       }
       for (let i = 0; i < rosterPositions2.length; i++) {
         $("#teamcard-positions2").append(
-          "<ul><li class='is-size-5'>" +
+          "<ul><li class='is-size-5-tablet'>" +
             allUserLeagues[1].roster_positions[i] +
             "</li></ul>"
         );
@@ -295,14 +295,14 @@ var userSearch = function (username) {
       for (let i = 0; i < playersLeague1.length; i++) {
         if (playersLeague1[i].full_name) {
           $("#teamcard-players").append(
-            "<ul class='has-text-left'><li class='is-size-5'>" +
+            "<ul class='has-text-left'><li class='is-size-5-tablet'>" +
               playersLeague1[i].full_name +
               "</ul></li>"
           );
         } else {
           // Else statement checks for the Defense positions of a Fantasy team. (defense first and last name are logged differently)
           $("#teamcard-players").append(
-            "<ul class='has-text-left'><li class='is-size-5'>" +
+            "<ul class='has-text-left'><li class='is-size-5-tablet'>" +
               playersLeague1[i].last_name +
               "</ul></li>"
           );
@@ -312,14 +312,14 @@ var userSearch = function (username) {
       for (let i = 0; i < playersLeague2.length; i++) {
         if (playersLeague2[i].full_name) {
           $("#team2card-players").append(
-            "<ul class='has-text-left'><li class='is-size-5'>" +
+            "<ul class='has-text-left'><li class='is-size-5-tablet'>" +
               playersLeague2[i].full_name +
               "</ul></li>"
           );
         } else {
           // Else statement checks for the Defense positions of a Fantasy team. (defense first and last name are logged differently)
           $("#team2card-players").append(
-            "<ul class='has-text-left'><li class='is-size-5'>" +
+            "<ul class='has-text-left'><li class='is-size-5-tablet'>" +
               playersLeague2[i].last_name +
               "</ul></li>"
           );
@@ -371,7 +371,7 @@ var userSearch = function (username) {
       // Collecting our points (for the user) per each starting player and appending them to the points column in the first league
       for (let i = 0; i < findRosterID1[0].starters_points.length; i++) {
         $("#teamcard-players1points").append(
-          "<ul class='has-text-right has-text-info'><li class='is-size-5'>" +
+          "<ul class='has-text-right has-text-info'><li class='is-size-5-tablet'>" +
             findRosterID1[0].starters_points[i] +
             "</ul></li>"
         );
@@ -379,7 +379,7 @@ var userSearch = function (username) {
       // Collecting our points (for the user) per each starting player and appending them to the points column in the second league
       for (let i = 0; i < findRosterID2[0].starters_points.length; i++) {
         $("#team2card-players1points").append(
-          "<ul class='has-text-right has-text-info'><li class='is-size-5'>" +
+          "<ul class='has-text-right has-text-info'><li class='is-size-5-tablet'>" +
             findRosterID2[0].starters_points[i] +
             "</ul></li>"
         );
@@ -442,7 +442,7 @@ var userSearch = function (username) {
       for (let i = 0; i < opponentRoster1[0].starters_points.length; i++) {
         // populating their points within the points column on the index file
         $("#teamcard-players2points").append(
-          "<ul class='has-text-left has-text-info'><li class='is-size-5'>" +
+          "<ul class='has-text-left has-text-info'><li class='is-size-5-tablet'>" +
             opponentRoster1[0].starters_points[i] +
             "</ul></li>"
         );
@@ -451,7 +451,7 @@ var userSearch = function (username) {
       for (let i = 0; i < opponentRoster2[0].starters_points.length; i++) {
         // populating their points within the points column on the index file
         $("#team2card-players2points").append(
-          "<ul class='has-text-left has-text-info'><li class='is-size-5'>" +
+          "<ul class='has-text-left has-text-info'><li class='is-size-5-tablet'>" +
             opponentRoster2[0].starters_points[i] +
             "</ul></li>"
         );
@@ -479,14 +479,14 @@ var userSearch = function (username) {
       for (let i = 0; i < opponentStartersArray1.length; i++) {
         if (opponentStartersArray1[i].full_name) {
           $("#teamcard-players2").append(
-            "<ul class='has-text-right'><li class='is-size-5'>" +
+            "<ul class='has-text-right'><li class='is-size-5-tablet'>" +
               opponentStartersArray1[i].full_name +
               "</ul></li>"
           );
         } else {
           // Else statement checks for the Defense positions of a Fantasy team. (defense first and last name are logged differently)
           $("#teamcard-players2").append(
-            "<ul class='has-text-right'><li class='is-size-5'>" +
+            "<ul class='has-text-right'><li class='is-size-5-tablet'>" +
               opponentStartersArray1[i].last_name +
               "</ul></li>"
           );
@@ -516,14 +516,14 @@ var userSearch = function (username) {
       for (let i = 0; i < opponentStartersArray2.length; i++) {
         if (opponentStartersArray2[i].full_name) {
           $("#team2card-players2").append(
-            "<ul class='has-text-right'><li class='is-size-5'>" +
+            "<ul class='has-text-right'><li class='is-size-5-tablet'>" +
               opponentStartersArray2[i].full_name +
               "</ul></li>"
           );
         } else {
           // Else statement checks for the Defense positions of a Fantasy team. (defense first and last name are logged differently)
           $("#team2card-players2").append(
-            "<ul class='has-text-right'><li class='is-size-5'>" +
+            "<ul class='has-text-right'><li class='is-size-5-tablet'>" +
               opponentStartersArray2[i].last_name +
               "</ul></li>"
           );

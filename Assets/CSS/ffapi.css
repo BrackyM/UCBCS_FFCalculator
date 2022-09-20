@@ -34,9 +34,16 @@ h2 {
 }
 
 .column {
-  flex: auto;
   padding: 1px;
   margin-top: 5px;
+  flex: auto;
+}
+.card-footer-item {
+  flex: auto;
+  min-width: 250px;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 670px;
 }
 #leaguecolumn {
   flex: auto;
